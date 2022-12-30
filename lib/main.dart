@@ -17,6 +17,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  var _totalScore = 0;
+
   static const _questions = const [
     {
       'questionText': 'What\'s your favorite color?',
@@ -46,7 +48,7 @@ class _MyAppState extends State<MyApp> {
       ]
     }
   ];
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
     log("Answer selected");
     if (_questionIndex + 1 < _questions.length) {
       log("We have more questions!");
@@ -54,6 +56,7 @@ class _MyAppState extends State<MyApp> {
       log("No more questions!");
     }
     setState(() {
+      _totalScore += score;
       _questionIndex++;
     });
   }
