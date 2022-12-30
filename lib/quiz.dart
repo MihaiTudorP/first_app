@@ -17,10 +17,10 @@ class Quiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       Question(questions[questionIndex]['questionText']),
-      ...(questions[questionIndex]['answers'] as List<String>)
+      ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
           .map((answer) => Answer(
                 onPressed: answerQuestion,
-                answerText: answer,
+                answerText: answer['text'],
               ))
     ]);
   }
