@@ -20,19 +20,35 @@ class _MyAppState extends State<MyApp> {
   static const _questions = const [
     {
       'questionText': 'What\'s your favorite color?',
-      'answers': ['Black', 'Red', 'Green', 'White']
+      'answers': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 3},
+        {'text': 'White', 'score': 1},
+      ]
     },
     {
       'questionText': 'What\'s your favorite animal?',
-      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion']
+      'answers': [
+        {'text': 'Rabbit', 'score': 2},
+        {'text': 'Snake', 'score': 10},
+        {'text': 'Elephant', 'score': 7},
+        {'text': 'Lion', 'score': 5}
+      ]
     },
     {
       'questionText': 'Who\'s your favorite instructor?',
-      'answers': ['Michael', 'John', 'Maxine', 'Emma']
+      'answers': [
+        {'text': 'Michael', 'score': 1},
+        {'text': 'John', 'score': 2},
+        {'text': 'Maxine', 'score': 7},
+        {'text': 'Emma', 'score': 5}
+      ]
     }
   ];
   void _answerQuestion() {
-    if (_questionIndex < _questions.length) {
+    log("Answer selected");
+    if (_questionIndex + 1 < _questions.length) {
       log("We have more questions!");
     } else {
       log("No more questions!");
@@ -40,7 +56,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questionIndex++;
     });
-    log("Answer selected");
   }
 
   @override
